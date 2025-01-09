@@ -28,13 +28,9 @@ app.get("/expenses", async (req, res) => {
     try {
         const result = await db.query("SELECT id, store, TO_CHAR(expensedate, 'YYYY-MM-DD') AS expensedate, amount FROM expensetracker");
 
-        if (result.rows.length > 0) {
-            console.log("Expenses fetched successfully:", result.rows);
-            res.status(200).json(result.rows);
-        } else {
-            console.warn("No expenses found.");
-            res.status(404).json({ message: "No expenses found." });
-        }
+        console.log("Expenses fetched successfully:", result.rows);
+        res.status(200).json(result.rows);
+        
     } catch (error) {
         console.error("Error occurred while fetching the expenses:", error.message);
         res.status(500).json({ error: "Internal Server Error. Please try again later." });
