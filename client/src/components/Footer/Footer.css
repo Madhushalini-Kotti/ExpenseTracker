@@ -1,0 +1,13 @@
+.Footer {
+    height: 60px;
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Footer > span {
+    font-size: 20px;
+}
